@@ -3,24 +3,27 @@ import Image from "next/image";
 import {  useState } from "react";
 
 const insectImgUrls = [
+    "/the-goodest-boy.jpg",
     "/merchant-grain-beetle.png",
     "/oriental-cockroach.png",
     "/saw-toothed-grain-beetle.png"
 ]
 
 const insectCommonNames = [
+    ["the goodest boy"],
     ["merchant grain beetle"],
     ["oriental cockroach"],
     ["sawtooth grain beetle"]
 ]
 
 const insectSpecificNames = [
+    "Golden Retriever",
     "Oryzaephilus mercator",
     "Blatta orientalis",
     "Oryzaephilus surinamensis"
 ]
 
-const insectIds = [0,1,2]
+const insectIds = [0,1,2,3]
 
 const faces = [
     "/sad.svg",
