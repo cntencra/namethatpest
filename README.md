@@ -1,4 +1,4 @@
-<div style="display:flex; justify-content: center;"><img src="./landing-page.jpeg" height=500 style="display:inline"/>  <img src="./quiz-page.jpeg" height=500/></div>
+<p style="text-align=center;"> <img src="./landing-page.jpeg" height=500 style="display:inline"/>  <img src="./quiz-page.jpeg" height=500/> </p>
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
