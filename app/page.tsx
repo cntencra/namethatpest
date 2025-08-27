@@ -3,7 +3,6 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center">
         <Image
           className="dark:invert"
@@ -13,14 +12,11 @@ export default function Home() {
           height={38}
           priority
         />
-        <ul className="font-mono list-inside  text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Take your pest knowledge to the next level!
-          </li>
-          <li className="tracking-[-.01em]">
-
-          </li>
-        </ul>
+        
+        <p className="mb-2">
+          Take your pest knowledge to the next level!
+        </p>
+          
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <Link
@@ -31,9 +27,6 @@ export default function Home() {
           </Link>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        
-      </footer>
-    </div>
+
   );
 }

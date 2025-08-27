@@ -1,44 +1,47 @@
-'use client'
+"use client";
+
+import { useState } from "react";
+import QuizForm from "../../components/quiz/QuizForm";
 import Image from "next/image";
-import {  useState } from "react";
-import QuizForm from "../components/QuizForm";
+import { getInsects } from "../../lib/api"
 
-const insectImgUrls = [
-    "/the-goodest-boy.jpg",
-    "/merchant-grain-beetle.png",
-    "/oriental-cockroach.png",
-    "/saw-toothed-grain-beetle.png"
-]
+import { useApiRequest } from "../../components/hooks/useApiRequest";
 
 
-export default function QuizPage() {
+export default function Quiz() {
 
-    const [currentInsectId, setCurrentInsectId] = useState(0)
+    const [itemId, setItemId] =useState(0)
+
+    const {data, isLoading, error} = useApiRequest(getInsects)
+
+    const handleNext = () => {
+        setItemId(getNextId())
+    }
+
+
+    const getNextId = () => {
+        if (data.length <= 1) return itemId
+        const ids = Array.from(Array(data.length).keys())
+        const filteredIds = ids.filter(id => id !== itemId);
+        const randomIndex = Math.floor(Math.random()*(ids.length))
+        return filteredIds[randomIndex]
+    }
+
+    if (error) return (<p>Error</p>)
+
+    if (isLoading) return (<p>...Loading</p>)
+
 
     return (
-        <main className="flex flex-col items-center px-4 pb-5 min-h-screen">
-
-            <div id="grid-container"
-            className="grid grid-rows-[0.1fr_0.8fr_0.1fr] items-center justify-items-center min-h-screen"
-            >
-                <Image
-                    className="w-auto mt-5 dark:invert"
-                    priority
-                    src='/ntp-title.png'
-                    alt="Insect not found"
-                    width={200}
-                    height={20}
-                />
-                <Image
-                    className="w-auto"
-                    priority
-                    src={insectImgUrls[currentInsectId]} 
-                    alt="Insect not found"
-                    width={100}
-                    height={300}
-                />
-                <QuizForm setCurrentInsectId={setCurrentInsectId} currentInsectId={currentInsectId}/>
-            </div>
-        </main>
-    )
+    <div className="w-full max-w-lg flex flex-col items-center justify-center">
+        <Image
+            src={data[itemId].image_url}
+            width={200}
+            height={200}
+            alt="Quiz Picture">
+        
+        </Image>
+        <QuizForm insect = {data[itemId]} handleNext={handleNext}/>
+    </div>
+  );
 }
