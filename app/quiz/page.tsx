@@ -33,14 +33,17 @@ export default function Quiz() {
 
 
     return (
-    <div className="w-full max-w-lg flex flex-col items-center justify-center">
+    <div className="w-full flex flex-col items-center justify-center">
+        <div className="w-[250px] h-[300px] flex flex-col items-center justify-center">
         <Image
+            priority={true}
             src={data[itemId].image_url}
             width={200}
-            height={200}
+            height={300}
+            style={{objectFit: "contain"}}
             alt="Quiz Picture">
-        
         </Image>
+        </div>
         <QuizForm insect = {data[itemId]} handleNext={handleNext}/>
     </div>
   );
