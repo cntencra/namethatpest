@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: "https://namethatpest.co.uk/api",
+  baseURL: "https://namethatpest-be.onrender.com/api",
   timeout: 1000,
 })
 
