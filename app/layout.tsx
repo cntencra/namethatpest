@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { QuizProvider } from "../contexts/TestType";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +25,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+     
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
+      <QuizProvider>
         <Header/>
-        <main className="flex-1 flex flex-col items-center justify-center p-2 sm:p-5">{children}</main>
+        <main className="flex-1 flex flex-col items-center justify-center p-2 sm:p-5">
+          {children}
+        </main>
         <Footer/>
+      </QuizProvider>
       </body>
     </html>
   );

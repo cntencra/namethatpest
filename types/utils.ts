@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { Insect } from "./insects"
 
 export interface QuizFormProps {
@@ -14,3 +15,10 @@ export interface QuizInputProps {
 }
 
 export type TriState = "correct" | "unknown" | "wrong"
+
+export type PestsOrDevs = 'pests' | 'devs'
+
+export type QuizContextType = {
+    quizTopic: string | null;
+    setQuizTopic: Dispatch<SetStateAction< PestsOrDevs | null>>;
+}
